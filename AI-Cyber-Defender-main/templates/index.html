@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AI Cyber Defender Console</title>
+  <style>
+    body{font-family:Arial,sans-serif;background:#0b1220;color:#e9eef7;margin:0;padding:24px}
+    .wrap{max-width:1200px;margin:auto}
+    h1,h2{margin:0 0 12px}
+    .grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+    .card{background:#121b2d;border:1px solid #24324e;border-radius:14px;padding:16px;box-shadow:0 8px 24px rgba(0,0,0,.2)}
+    textarea,input,select,button{width:100%;padding:10px;border-radius:10px;border:1px solid #324567;background:#0e1728;color:#e9eef7}
+    textarea{min-height:220px;resize:vertical}
+    button{background:#3b82f6;border:none;font-weight:bold;cursor:pointer}
+    button:hover{opacity:.92}
+    pre{white-space:pre-wrap;word-break:break-word;background:#08111d;padding:12px;border-radius:10px;max-height:420px;overflow:auto}
+    .row{display:flex;gap:12px}.row>*{flex:1}
+    .muted{color:#9bb0d1;font-size:14px}
+    .pill{display:inline-block;padding:4px 10px;border-radius:999px;background:#20314f;margin-right:6px;margin-bottom:6px}
+  </style>
+</head>
+<body>
+<div class="wrap">
+  <h1>AI Cyber Defender Console</h1>
+  <p class="muted">جرب الموديلات، طلع alerts، وولّد تقارير يومية/أسبوعية/شهرية من نفس الواجهة.</p>
+
+  <div class="grid">
+    <div class="card">
+      <h2>Predict Logs</h2>
+      <div class="row">
+        <select id="source">
+          <option value="windows">windows</option>
+          <option value="web">web</option>
+          <option value="network">network</option>
+        </select>
+        <button onclick="sendLogs()">Run Detection</button>
+      </div>
+      <p class="muted">الصيغة: JSON array من rows. لازم تبعت على الأقل عدد rows يساوي sequence_length للموديل.</p>
+      <textarea id="logsInput">[
+  {"Event ID":4799,"Task Category":"A security-enabled local group membership was enumerated","Source":"Microsoft-Windows-Security-Auditing","Date and Time":"2026-04-17 10:12:00","username":"Ahmed","src_ip":"192.168.1.5"},
+  {"Event ID":4797,"Task Category":"An attempt was made to query the existence of a blank password for an account","Source":"Microsoft-Windows-Security-Auditing","Date and Time":"2026-04-17 10:12:05","username":"Ahmed","src_ip":"192.168.1.5"}
+]</textarea>
+      <pre id="logsOut"></pre>
+    </div>
+
+    <div class="card">
+      <h2>Predict URLs</h2>
+      <button onclick="sendUrls()">Run URL Detection</button>
+      <p class="muted">الصيغة: JSON array من URLs.</p>
+      <textarea id="urlsInput">[
+  "http://secure-login-check-update-account.example.com",
+  "https://google.com"
+]</textarea>
+      <pre id="urlsOut"></pre>
+    </div>
+
+    <div class="card">
+      <h2>Generate Reports</h2>
+      <div class="row">
+        <select id="period">
+          <option value="daily">daily</option>
+          <option value="weekly">weekly</option>
+          <option value="monthly">monthly</option>
+        </select>
+        <button onclick="generateReport()">Generate Report</button>
+      </div>
+      <pre id="reportOut"></pre>
+    </div>
+
+    <div class="card">
+      <h2>Latest Alerts Snapshot</h2>
+      <button onclick="latestAlerts()">Refresh Alerts</button>
+      <pre id="alertsOut"></pre>
+    </div>
+  </div>
+</div>
+<script>
+async function sendLogs(){
+  const source=document.getElementById('source').value;
+  const logs=JSON.parse(document.getElementById('logsInput').value);
+  const res=await fetch(`/api/predict/logs/${source}`,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({logs})});
+  const data=await res.json();
+  document.getElementById('logsOut').textContent=JSON.stringify(data,null,2);
+}
+async function sendUrls(){
+  const urls=JSON.parse(document.getElementById('urlsInput').value);
+  const res=await fetch('/api/predict/url',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({urls})});
+  const data=await res.json();
+  document.getElementById('urlsOut').textContent=JSON.stringify(data,null,2);
+}
+async function generateReport(){
+  const period=document.getElementById('period').value;
+  const res=await fetch(`/api/reports/generate?period=${period}`,{method:'POST'});
+  const data=await res.json();
+  document.getElementById('reportOut').textContent=JSON.stringify(data,null,2);
+}
+async function latestAlerts(){
+  const res=await fetch('/api/alerts/latest');
+  const data=await res.json();
+  document.getElementById('alertsOut').textContent=JSON.stringify(data,null,2);
+}
+latestAlerts();
+async function loadLogs() {
+    try {
+        let res = await fetch("http://127.0.0.1:5000/api/predict", {
+            method: "POST",
+            headers: {"Content-Type": "application/json"},
+            body: JSON.stringify({
+                input_text: "test attack OR 1=1"
+            })
+        });
+
+        let data = await res.json();
+
+        document.getElementById("logs").innerHTML = `
+            <div style="padding:10px;background:#1e293b;border-radius:8px">
+                <b>${data.prediction}</b><br>
+                Type: ${data.attack_type}<br>
+                Score: ${data.threat_score}<br>
+                <small>${data.event_time}</small>
+            </div>
+        `;
+    } catch (err) {
+        document.getElementById("logs").innerHTML =
+            "<span style='color:red'>Error connecting to API</span>";
+        console.log(err);
+    }
+}
+
+// تشغيل أول مرة
+loadLogs();
+
+// تحديث كل 5 ثواني
+setInterval(loadLogs, 5000);
+</script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+{
+  "generated_at": "2026-04-06T18:00:00Z",
+  "overview": {
+    "total_items_analyzed": 12,
+    "total_threats_detected": 5,
+    "security_score": 54.2,
+    "average_threat_score": 45.8
+  },
+  "urls": {
+    "total_urls": 2,
+    "malicious_urls": 1,
+    "safe_urls": 1,
+    "severity_distribution": {
+      "critical": 0,
+      "high": 1,
+      "medium": 0,
+      "low": 1
+    }
+  },
+  "logs": {
+    "total_log_windows": 10,
+    "anomalous_windows": 4,
+    "normal_windows": 6,
+    "severity_distribution": {
+      "critical": 1,
+      "high": 1,
+      "medium": 2,
+      "low": 6
+    }
+  },
+  "top_alerts": [
+    {
+      "url": "http://verify-paypal-login-free-bonus.xyz/login",
+      "prediction": "malicious",
+      "threat_score": 91.5,
+      "threat_level": "critical"
+    },
+    {
+      "event_id": 4688,
+      "message": "powershell.exe launched with encoded command",
+      "prediction": "anomaly",
+      "threat_score": 88.1,
+      "threat_level": "critical"
+    }
+  ]
+}

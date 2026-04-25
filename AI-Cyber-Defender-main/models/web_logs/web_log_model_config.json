@@ -1,0 +1,42 @@
+{
+  "source": "web",
+  "timestamp_col": "timestamp",
+  "text_cols": [
+    "method",
+    "url",
+    "path",
+    "query",
+    "user_agent"
+  ],
+  "feature_cols": [
+    "unnamed:_0",
+    "method",
+    "user-agent",
+    "pragma",
+    "cache-control",
+    "accept",
+    "accept-encoding",
+    "accept-charset",
+    "language",
+    "host",
+    "content-type",
+    "connection",
+    "method_len",
+    "method_digit_count",
+    "method_special_count",
+    "url_len",
+    "url_digit_count",
+    "url_special_count"
+  ],
+  "sequence_length": 10,
+  "lstm_units": 128,
+  "latent_dim": 32,
+  "dropout_rate": 0.2,
+  "learning_rate": 0.001,
+  "batch_size": 32,
+  "epochs": 20,
+  "threshold_percentile": 65,
+  "threshold": 0.006936572690702766,
+  "train_ratio": 0.7,
+  "label_col": "classification"
+}

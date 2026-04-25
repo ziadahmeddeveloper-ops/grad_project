@@ -1,0 +1,160 @@
+AI Cyber Defender - Test Logs Samples
+===================================
+
+This file contains SAFE and ATTACK samples for:
+1) Windows Logs
+2) Web Logs
+3) Network Logs
+4) URL Samples
+
+========================
+1) WINDOWS LOGS
+========================
+
+[SAFE 1]
+2024-04-17 09:14:02 Security EventID=4624 An account was successfully logged on User=Ahmed SRC=192.168.1.20
+
+[SAFE 2]
+2024-04-17 09:16:11 Security EventID=4634 An account was logged off User=Ahmed SRC=192.168.1.20
+
+[SAFE 3]
+2024-04-17 10:02:45 Security EventID=4776 The domain controller attempted to validate credentials for an account User=Sara SRC=192.168.1.25
+
+[SAFE 4]
+2024-04-17 10:20:18 Security EventID=4648 A logon was attempted using explicit credentials User=ITSupport SRC=192.168.1.15
+
+[ATTACK 1 - Failed Logon]
+2024-04-17 03:11:42 Security EventID=4625 An account failed to log on User=Administrator SRC=185.234.219.5 FailureReason=Unknown user or bad password
+
+[ATTACK 2 - Failed Logon]
+2024-04-17 03:12:15 Security EventID=4625 An account failed to log on User=Administrator SRC=185.234.219.5 FailureReason=Unknown user or bad password
+
+[ATTACK 3 - Account Enumeration]
+2024-04-17 03:15:22 Security EventID=4797 An attempt was made to query the existence of a blank password for an account User=Guest SRC=185.234.219.5
+
+[ATTACK 4 - Privilege Enumeration]
+2024-04-17 03:17:08 Security EventID=4799 A security-enabled local group membership was enumerated User=Administrator SRC=185.234.219.5
+
+[ATTACK 5 - Suspicious Process]
+2024-04-17 03:20:55 Security EventID=4688 A new process has been created Process=powershell.exe User=Administrator SRC=185.234.219.5
+
+
+========================
+2) WEB LOGS
+========================
+
+[SAFE 1]
+GET /home HTTP/1.1
+
+[SAFE 2]
+GET /dashboard HTTP/1.1
+
+[SAFE 3]
+GET /products?id=15 HTTP/1.1
+
+[SAFE 4]
+POST /login HTTP/1.1 body=username=ahmed&password=Test123
+
+[SAFE 5]
+GET /search?q=laptop HTTP/1.1
+
+[ATTACK 1 - SQL Injection]
+GET /login?username=admin' OR 1=1--&password=x HTTP/1.1
+
+[ATTACK 2 - SQL Injection]
+GET /products?id=10 UNION SELECT username,password FROM users HTTP/1.1
+
+[ATTACK 3 - XSS]
+POST /comment HTTP/1.1 body=<script>alert(1)</script>
+
+[ATTACK 4 - Path Traversal]
+GET /download?file=../../../../etc/passwd HTTP/1.1
+
+[ATTACK 5 - Command Injection]
+GET /admin?cmd=whoami HTTP/1.1
+
+
+========================
+3) NETWORK LOGS
+========================
+
+[SAFE 1]
+Apr 17 09:14:02 fw01 ACCEPT IN=eth0 OUT= SRC=192.168.1.20 DST=10.0.0.5 LEN=60 PROTO=TCP SPT=52344 DPT=443 ACK
+
+[SAFE 2]
+Apr 17 09:14:10 fw01 ACCEPT IN=eth0 OUT= SRC=192.168.1.21 DST=10.0.0.10 LEN=52 PROTO=UDP SPT=53001 DPT=53
+
+[SAFE 3]
+Apr 17 09:16:44 fw01 ACCEPT IN=eth0 OUT= SRC=192.168.1.35 DST=10.0.0.20 LEN=72 PROTO=TCP SPT=51000 DPT=22 ACK
+
+[SAFE 4]
+Apr 17 09:17:50 fw01 ACCEPT IN=eth0 OUT= SRC=192.168.1.40 DST=10.0.0.15 LEN=58 PROTO=ICMP TYPE=8 CODE=0
+
+[ATTACK 1 - SYN Flood]
+May 3 14:05:23 fw01 kernel: [SYN Flood] DROP IN=eth0 OUT= SRC=185.220.101.45 DST=10.0.0.1 LEN=44 PROTO=TCP SPT=52301 DPT=80 WINDOW=65535 SYN
+
+[ATTACK 2 - DDoS]
+May 3 14:06:10 fw01 ALERT DDoS detected SRC=185.220.101.50 DST=10.0.0.1 PROTO=TCP SYN RATE=25000pps
+
+[ATTACK 3 - Port Scan]
+May 3 14:07:40 fw01 NOTICE PortScan detected SRC=45.67.89.10 DST=10.0.0.12 PROTO=TCP SYN DPT=22,80,443,3389
+
+[ATTACK 4 - Reconnaissance]
+May 3 14:08:12 fw01 WARNING Scan activity SRC=45.67.89.10 DST=10.0.0.12 PROTO=TCP SYN
+
+[ATTACK 5 - Bot/C2]
+May 3 14:09:55 fw01 ALERT Possible C2 traffic SRC=103.24.77.8 DST=10.0.0.22 PROTO=TCP FLOW=botnet beacon
+
+
+========================
+4) URL SAMPLES
+========================
+
+[SAFE 1]
+https://www.google.com/search?q=cyber+security
+
+[SAFE 2]
+https://github.com/
+
+[SAFE 3]
+https://www.microsoft.com/
+
+[SAFE 4]
+https://en.wikipedia.org/wiki/Computer_security
+
+[ATTACK 1 - Phishing]
+http://secure-login-paypal-account-verification.com/login.php?session=834734
+
+[ATTACK 2 - Suspicious]
+http://192.168.1.99/verify/account/update/index.php?user=admin
+
+[ATTACK 3 - Malware Delivery]
+http://free-update-security-check.com/download/payload.exe
+
+
+========================
+5) WINDOWS BATCH TEST
+========================
+
+Use the following lines together in batch mode for LSTM testing:
+
+2024-04-17 09:14:02 Security EventID=4624 An account was successfully logged on User=Ahmed SRC=192.168.1.20
+2024-04-17 09:16:11 Security EventID=4634 An account was logged off User=Ahmed SRC=192.168.1.20
+2024-04-17 10:02:45 Security EventID=4776 The domain controller attempted to validate credentials for an account User=Sara SRC=192.168.1.25
+2024-04-17 10:20:18 Security EventID=4648 A logon was attempted using explicit credentials User=ITSupport SRC=192.168.1.15
+2024-04-17 11:05:33 Security EventID=4624 An account was successfully logged on User=Mona SRC=192.168.1.30
+2024-04-17 11:10:44 Security EventID=4624 An account was successfully logged on User=Omar SRC=192.168.1.31
+2024-04-17 11:15:12 Security EventID=4634 An account was logged off User=Mona SRC=192.168.1.30
+2024-04-17 11:19:27 Security EventID=4624 An account was successfully logged on User=Yousef SRC=192.168.1.32
+2024-04-17 11:21:52 Security EventID=4624 An account was successfully logged on User=Noha SRC=192.168.1.33
+2024-04-17 11:24:08 Security EventID=4624 An account was successfully logged on User=Ahmed SRC=192.168.1.20
+2024-04-17 11:28:14 Security EventID=4634 An account was logged off User=Ahmed SRC=192.168.1.20
+2024-04-17 11:31:02 Security EventID=4624 An account was successfully logged on User=Kareem SRC=192.168.1.34
+2024-04-17 11:35:55 Security EventID=4624 An account was successfully logged on User=Salma SRC=192.168.1.35
+2024-04-17 11:40:12 Security EventID=4634 An account was logged off User=Kareem SRC=192.168.1.34
+2024-04-17 11:45:18 Security EventID=4624 An account was successfully logged on User=Hana SRC=192.168.1.36
+2024-04-17 11:50:03 Security EventID=4625 An account failed to log on User=Administrator SRC=185.234.219.5 FailureReason=Unknown user or bad password
+2024-04-17 11:50:10 Security EventID=4625 An account failed to log on User=Administrator SRC=185.234.219.5 FailureReason=Unknown user or bad password
+2024-04-17 11:50:18 Security EventID=4797 An attempt was made to query the existence of a blank password for an account User=Guest SRC=185.234.219.5
+2024-04-17 11:50:24 Security EventID=4799 A security-enabled local group membership was enumerated User=Administrator SRC=185.234.219.5
+2024-04-17 11:50:30 Security EventID=4688 A new process has been created Process=powershell.exe User=Administrator SRC=185.234.219.5

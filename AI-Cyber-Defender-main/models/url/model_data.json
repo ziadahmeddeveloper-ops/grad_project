@@ -1,0 +1,345 @@
+{
+  "metrics": {
+    "accuracy": 0.96,
+    "precision": 1.0,
+    "recall": 0.9166666666666666,
+    "f1": 0.9565217391304348,
+    "roc_auc": 0.9871794871794872,
+    "cv_f1_mean": 0.9283709273182957,
+    "cv_f1_std": 0.053506606049854286
+  },
+  "top_features": [
+    [
+      "num_hyphens",
+      "0.25630763"
+    ],
+    [
+      "domain_hyphen_count",
+      "0.17452772"
+    ],
+    [
+      "num_slashes",
+      "0.15590735"
+    ],
+    [
+      "domain_length",
+      "0.12873922"
+    ],
+    [
+      "is_suspicious_tld",
+      "0.099295154"
+    ],
+    [
+      "domain_entropy",
+      "0.08298934"
+    ],
+    [
+      "suspicious_keyword_count",
+      "0.044635195"
+    ],
+    [
+      "is_https",
+      "0.030418258"
+    ],
+    [
+      "path_entropy",
+      "0.009457708"
+    ],
+    [
+      "path_length",
+      "0.009393769"
+    ],
+    [
+      "num_dots",
+      "0.008328662"
+    ],
+    [
+      "url_length",
+      "0.0"
+    ],
+    [
+      "query_length",
+      "0.0"
+    ],
+    [
+      "num_underscores",
+      "0.0"
+    ],
+    [
+      "num_at_signs",
+      "0.0"
+    ]
+  ],
+  "feature_names": [
+    "url_length",
+    "domain_length",
+    "path_length",
+    "query_length",
+    "num_dots",
+    "num_hyphens",
+    "num_underscores",
+    "num_slashes",
+    "num_at_signs",
+    "num_question_marks",
+    "num_equals",
+    "num_digits",
+    "digit_ratio",
+    "has_ip_address",
+    "is_https",
+    "is_suspicious_tld",
+    "num_subdomains",
+    "is_url_shortener",
+    "domain_has_digit",
+    "domain_hyphen_count",
+    "suspicious_keyword_count",
+    "has_login_keyword",
+    "has_verify_keyword",
+    "has_bank_keyword",
+    "has_free_keyword",
+    "has_secure_keyword",
+    "domain_entropy",
+    "path_entropy",
+    "has_double_slash",
+    "has_hex_encoding"
+  ],
+  "sample_results": [
+    {
+      "url": "https://www.google.com/search?q=xgboost",
+      "label": "LEGITIMATE",
+      "phishing_probability": 0.2672,
+      "risk_level": "LOW",
+      "features": {
+        "url_length": 39,
+        "domain_length": 14,
+        "path_length": 7,
+        "query_length": 9,
+        "num_dots": 2,
+        "num_hyphens": 0,
+        "num_underscores": 0,
+        "num_slashes": 3,
+        "num_at_signs": 0,
+        "num_question_marks": 1,
+        "num_equals": 1,
+        "num_digits": 0,
+        "digit_ratio": 0.0,
+        "has_ip_address": 0,
+        "is_https": 1,
+        "is_suspicious_tld": 0,
+        "num_subdomains": 1,
+        "is_url_shortener": 0,
+        "domain_has_digit": 0,
+        "domain_hyphen_count": 0,
+        "suspicious_keyword_count": 1,
+        "has_login_keyword": 0,
+        "has_verify_keyword": 0,
+        "has_bank_keyword": 0,
+        "has_free_keyword": 0,
+        "has_secure_keyword": 0,
+        "domain_entropy": 2.8423709931771093,
+        "path_entropy": 2.807354922057604,
+        "has_double_slash": 0,
+        "has_hex_encoding": 0
+      }
+    },
+    {
+      "url": "http://paypa1-secure-verify.xyz/login?user=test",
+      "label": "PHISHING",
+      "phishing_probability": 0.9814,
+      "risk_level": "HIGH",
+      "features": {
+        "url_length": 47,
+        "domain_length": 24,
+        "path_length": 6,
+        "query_length": 9,
+        "num_dots": 1,
+        "num_hyphens": 2,
+        "num_underscores": 0,
+        "num_slashes": 3,
+        "num_at_signs": 0,
+        "num_question_marks": 1,
+        "num_equals": 1,
+        "num_digits": 1,
+        "digit_ratio": 0.02127659574468085,
+        "has_ip_address": 0,
+        "is_https": 0,
+        "is_suspicious_tld": 1,
+        "num_subdomains": 0,
+        "is_url_shortener": 0,
+        "domain_has_digit": 1,
+        "domain_hyphen_count": 2,
+        "suspicious_keyword_count": 3,
+        "has_login_keyword": 1,
+        "has_verify_keyword": 1,
+        "has_bank_keyword": 0,
+        "has_free_keyword": 0,
+        "has_secure_keyword": 1,
+        "domain_entropy": 3.8553885422075345,
+        "path_entropy": 2.584962500721156,
+        "has_double_slash": 0,
+        "has_hex_encoding": 0
+      }
+    },
+    {
+      "url": "https://github.com/scikit-learn/scikit-learn",
+      "label": "LEGITIMATE",
+      "phishing_probability": 0.1671,
+      "risk_level": "LOW",
+      "features": {
+        "url_length": 44,
+        "domain_length": 10,
+        "path_length": 26,
+        "query_length": 0,
+        "num_dots": 1,
+        "num_hyphens": 2,
+        "num_underscores": 0,
+        "num_slashes": 4,
+        "num_at_signs": 0,
+        "num_question_marks": 0,
+        "num_equals": 0,
+        "num_digits": 0,
+        "digit_ratio": 0.0,
+        "has_ip_address": 0,
+        "is_https": 1,
+        "is_suspicious_tld": 0,
+        "num_subdomains": 0,
+        "is_url_shortener": 0,
+        "domain_has_digit": 0,
+        "domain_hyphen_count": 0,
+        "suspicious_keyword_count": 0,
+        "has_login_keyword": 0,
+        "has_verify_keyword": 0,
+        "has_bank_keyword": 0,
+        "has_free_keyword": 0,
+        "has_secure_keyword": 0,
+        "domain_entropy": 3.321928094887362,
+        "path_entropy": 3.5465935642949384,
+        "has_double_slash": 0,
+        "has_hex_encoding": 0
+      }
+    },
+    {
+      "url": "http://amazon-account-suspended.tk/restore",
+      "label": "PHISHING",
+      "phishing_probability": 0.9814,
+      "risk_level": "HIGH",
+      "features": {
+        "url_length": 42,
+        "domain_length": 27,
+        "path_length": 8,
+        "query_length": 0,
+        "num_dots": 1,
+        "num_hyphens": 2,
+        "num_underscores": 0,
+        "num_slashes": 3,
+        "num_at_signs": 0,
+        "num_question_marks": 0,
+        "num_equals": 0,
+        "num_digits": 0,
+        "digit_ratio": 0.0,
+        "has_ip_address": 0,
+        "is_https": 0,
+        "is_suspicious_tld": 1,
+        "num_subdomains": 0,
+        "is_url_shortener": 0,
+        "domain_has_digit": 0,
+        "domain_hyphen_count": 2,
+        "suspicious_keyword_count": 3,
+        "has_login_keyword": 0,
+        "has_verify_keyword": 0,
+        "has_bank_keyword": 0,
+        "has_free_keyword": 0,
+        "has_secure_keyword": 0,
+        "domain_entropy": 3.810081020521731,
+        "path_entropy": 2.5,
+        "has_double_slash": 0,
+        "has_hex_encoding": 0
+      }
+    },
+    {
+      "url": "https://stackoverflow.com/questions",
+      "label": "LEGITIMATE",
+      "phishing_probability": 0.3211,
+      "risk_level": "LOW",
+      "features": {
+        "url_length": 35,
+        "domain_length": 17,
+        "path_length": 10,
+        "query_length": 0,
+        "num_dots": 1,
+        "num_hyphens": 0,
+        "num_underscores": 0,
+        "num_slashes": 3,
+        "num_at_signs": 0,
+        "num_question_marks": 0,
+        "num_equals": 0,
+        "num_digits": 0,
+        "digit_ratio": 0.0,
+        "has_ip_address": 0,
+        "is_https": 1,
+        "is_suspicious_tld": 0,
+        "num_subdomains": 0,
+        "is_url_shortener": 0,
+        "domain_has_digit": 0,
+        "domain_hyphen_count": 0,
+        "suspicious_keyword_count": 0,
+        "has_login_keyword": 0,
+        "has_verify_keyword": 0,
+        "has_bank_keyword": 0,
+        "has_free_keyword": 0,
+        "has_secure_keyword": 0,
+        "domain_entropy": 3.6901165175936654,
+        "path_entropy": 3.121928094887362,
+        "has_double_slash": 0,
+        "has_hex_encoding": 0
+      }
+    },
+    {
+      "url": "https://apple-id-verify-now.info/update",
+      "label": "PHISHING",
+      "phishing_probability": 0.9793,
+      "risk_level": "HIGH",
+      "features": {
+        "url_length": 39,
+        "domain_length": 24,
+        "path_length": 7,
+        "query_length": 0,
+        "num_dots": 1,
+        "num_hyphens": 3,
+        "num_underscores": 0,
+        "num_slashes": 3,
+        "num_at_signs": 0,
+        "num_question_marks": 0,
+        "num_equals": 0,
+        "num_digits": 0,
+        "digit_ratio": 0.0,
+        "has_ip_address": 0,
+        "is_https": 1,
+        "is_suspicious_tld": 1,
+        "num_subdomains": 0,
+        "is_url_shortener": 0,
+        "domain_has_digit": 0,
+        "domain_hyphen_count": 3,
+        "suspicious_keyword_count": 3,
+        "has_login_keyword": 0,
+        "has_verify_keyword": 1,
+        "has_bank_keyword": 0,
+        "has_free_keyword": 0,
+        "has_secure_keyword": 0,
+        "domain_entropy": 3.7720552088742005,
+        "path_entropy": 2.807354922057604,
+        "has_double_slash": 0,
+        "has_hex_encoding": 0
+      }
+    }
+  ],
+  "confusion_matrix": [
+    [
+      13,
+      0
+    ],
+    [
+      1,
+      11
+    ]
+  ]
+}

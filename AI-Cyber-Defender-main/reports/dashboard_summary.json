@@ -1,0 +1,32 @@
+{
+  "generated_at": "2026-04-18T16:33:15.625020Z",
+  "overview": {
+    "total_items_analyzed": 1,
+    "total_threats_detected": 0,
+    "security_score": 70.0,
+    "average_threat_score": 30.0
+  },
+  "urls": {
+    "total_urls": 0,
+    "malicious_urls": 0,
+    "safe_urls": 0,
+    "severity_distribution": {
+      "critical": 0,
+      "high": 0,
+      "medium": 0,
+      "low": 0
+    }
+  },
+  "logs": {
+    "total_log_windows": 1,
+    "anomalous_windows": 0,
+    "normal_windows": 1,
+    "severity_distribution": {
+      "critical": 0,
+      "high": 0,
+      "medium": 0,
+      "low": 1
+    }
+  },
+  "top_alerts": []
+}

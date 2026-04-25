@@ -1,0 +1,15 @@
+1) Put PhiUSIIL CSV in: data/url/urls.csv
+2) Put all CICIDS CSV files in: data/network_raw/
+3) Put extracted web dataset files in: data/web_raw/
+4) Put extracted windows dataset files in: data/windows_raw/
+
+Run:
+python training/train_url_final.py
+python training/prepare_network_full.py
+python training/train_network_anomaly_final.py
+python training/train_network_classifier_final.py
+python training/train_web_final.py
+python training/train_windows_final.py
+
+Then start API:
+uvicorn api.app:app --reload

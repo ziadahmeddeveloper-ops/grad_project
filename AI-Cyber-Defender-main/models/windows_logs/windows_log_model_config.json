@@ -1,0 +1,24 @@
+{
+  "source": "windows",
+  "timestamp_col": "timestamp",
+  "text_cols": [
+    "source",
+    "level",
+    "task_category",
+    "account_name",
+    "process_name",
+    "message"
+  ],
+  "feature_cols": [
+    "event_id"
+  ],
+  "sequence_length": 10,
+  "lstm_units": 64,
+  "latent_dim": 32,
+  "dropout_rate": 0.2,
+  "learning_rate": 0.001,
+  "batch_size": 32,
+  "epochs": 10,
+  "threshold_percentile": 95,
+  "threshold": 0.33231965863918606
+}

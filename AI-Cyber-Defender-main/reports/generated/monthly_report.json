@@ -1,0 +1,433 @@
+{
+  "report_type": "monthly",
+  "generated_at": "2026-04-21T17:39:35.137189Z",
+  "summary": {
+    "items_analyzed": 343,
+    "threats_detected": 297,
+    "security_score": 0.0,
+    "top_attack_types": [
+      [
+        "Windows Anomaly",
+        135
+      ],
+      [
+        "SQL Injection",
+        40
+      ],
+      [
+        "Web Anomaly",
+        38
+      ],
+      [
+        "Brute Force / Failed Logon",
+        30
+      ],
+      [
+        "Privilege Enumeration",
+        17
+      ]
+    ],
+    "top_suspicious_ips": [
+      [
+        "185.234.219.5",
+        76
+      ],
+      [
+        "192.168.1.20",
+        50
+      ],
+      [
+        "192.168.1.34",
+        22
+      ],
+      [
+        "192.168.1.30",
+        12
+      ],
+      [
+        "192.168.1.35",
+        11
+      ]
+    ],
+    "top_impacted_users": [
+      [
+        "Administrator",
+        65
+      ],
+      [
+        "Ahmed",
+        44
+      ],
+      [
+        "Kareem",
+        22
+      ],
+      [
+        "admin",
+        12
+      ],
+      [
+        "Guest",
+        12
+      ]
+    ]
+  },
+  "top_alerts": [
+    {
+      "generated_at": "2026-04-17T18:12:15.291543+00:00",
+      "source_type": "windows",
+      "row_index": 9,
+      "anomaly_score": 1192847.937772,
+      "prediction": "anomaly",
+      "threshold": 0.33231965863918606,
+      "threat_score": 100.0,
+      "threat_level": "critical",
+      "source_ip": "185.234.219.5",
+      "username": "Administrator",
+      "event_time": "2026-04-17T18:12:15.291543Z",
+      "host": null,
+      "attack_type": "Windows Anomaly",
+      "recommended_actions": [
+        "Review the affected host and recent Windows security events around the same time.",
+        "Escalate to the security team and open an incident ticket."
+      ],
+      "raw_context": {
+        "event_id": 4625,
+        "source": "Microsoft-Windows-Security-Auditing",
+        "task_category": "An account failed to log on"
+      }
+    },
+    {
+      "generated_at": "2026-04-17T18:12:45.640374+00:00",
+      "source_type": "web",
+      "row_index": 9,
+      "anomaly_score": 11.0396,
+      "prediction": "anomaly",
+      "threshold": 0.006936572690702766,
+      "threat_score": 100.0,
+      "threat_level": "critical",
+      "source_ip": null,
+      "username": "admin",
+      "event_time": "2026-04-17T18:12:45.640374Z",
+      "host": null,
+      "attack_type": "SQL Injection",
+      "recommended_actions": [
+        "Block or rate-limit the source IP on the firewall/WAF.",
+        "Inspect the vulnerable endpoint, sanitize inputs, and review recent database queries.",
+        "Escalate to the security team and open an incident ticket."
+      ],
+      "raw_context": {
+        "url": "GET /login?username=admin' OR 1=1--&password=x HTTP/1.1",
+        "query": "username=admin' OR 1=1--&password=x HTTP/1.1"
+      }
+    },
+    {
+      "generated_at": "2026-04-17T18:16:08.298064+00:00",
+      "source_type": "web",
+      "row_index": 9,
+      "anomaly_score": 11.0396,
+      "prediction": "anomaly",
+      "threshold": 0.006936572690702766,
+      "threat_score": 100.0,
+      "threat_level": "critical",
+      "source_ip": null,
+      "username": "admin",
+      "event_time": "2026-04-17T18:16:08.298064Z",
+      "host": null,
+      "attack_type": "SQL Injection",
+      "recommended_actions": [
+        "Block or rate-limit the source IP on the firewall/WAF.",
+        "Inspect the vulnerable endpoint, sanitize inputs, and review recent database queries.",
+        "Escalate to the security team and open an incident ticket."
+      ],
+      "raw_context": {
+        "url": "GET /login?username=admin' OR 1=1--&password=x HTTP/1.1",
+        "query": "username=admin' OR 1=1--&password=x HTTP/1.1"
+      }
+    },
+    {
+      "generated_at": "2026-04-17T18:16:12.167520+00:00",
+      "source_type": "web",
+      "row_index": 9,
+      "anomaly_score": 11.038342,
+      "prediction": "anomaly",
+      "threshold": 0.006936572690702766,
+      "threat_score": 100.0,
+      "threat_level": "critical",
+      "source_ip": null,
+      "username": null,
+      "event_time": "2026-04-17T18:16:12.167520Z",
+      "host": null,
+      "attack_type": "Cross-Site Scripting (XSS)",
+      "recommended_actions": [
+        "Block or rate-limit the source IP on the firewall/WAF.",
+        "Encode output, validate input, and inspect recent reflected/stored payloads.",
+        "Escalate to the security team and open an incident ticket."
+      ],
+      "raw_context": {
+        "url": "POST /comment HTTP/1.1 body=<script>alert(1)<:/script>",
+        "query": ""
+      }
+    },
+    {
+      "generated_at": "2026-04-17T18:16:18.543546+00:00",
+      "source_type": "windows",
+      "row_index": 9,
+      "anomaly_score": 1192847.937772,
+      "prediction": "anomaly",
+      "threshold": 0.33231965863918606,
+      "threat_score": 100.0,
+      "threat_level": "critical",
+      "source_ip": "185.234.219.5",
+      "username": "Administrator",
+      "event_time": "2026-04-17T18:16:18.543546Z",
+      "host": null,
+      "attack_type": "Brute Force / Failed Logon",
+      "recommended_actions": [
+        "Review the affected host and recent Windows security events around the same time.",
+        "Reset impacted credentials, enable MFA, and review failed login spikes.",
+        "Escalate to the security team and open an incident ticket."
+      ],
+      "raw_context": {
+        "event_id": 4625,
+        "task_category": "2024-04-17 03:11:42 Security EventID=4625 An account failed to log on User=Administrator SRC=185.234.219.5 FailureReason=Unknown user or bad password",
+        "host": null
+      }
+    },
+    {
+      "generated_at": "2026-04-17T18:16:25.815254+00:00",
+      "source_type": "windows",
+      "row_index": 9,
+      "anomaly_score": 1192847.937772,
+      "prediction": "anomaly",
+      "threshold": 0.33231965863918606,
+      "threat_score": 100.0,
+      "threat_level": "critical",
+      "source_ip": "185.234.219.5",
+      "username": "Administrator",
+      "event_time": "2026-04-17T18:16:25.815254Z",
+      "host": null,
+      "attack_type": "Windows Anomaly",
+      "recommended_actions": [
+        "Review the affected host and recent Windows security events around the same time.",
+        "Escalate to the security team and open an incident ticket."
+      ],
+      "raw_context": {
+        "event_id": 4625,
+        "source": "Microsoft-Windows-Security-Auditing",
+        "task_category": "An account failed to log on"
+      }
+    },
+    {
+      "generated_at": "2026-04-17T18:16:35.604004+00:00",
+      "source_type": "network",
+      "row_index": 19,
+      "anomaly_score": 603.110705,
+      "prediction": "anomaly",
+      "threshold": 0.6430182176908295,
+      "threat_score": 100.0,
+      "threat_level": "critical",
+      "source_ip": "185.220.101.45",
+      "username": null,
+      "event_time": "2026-04-17T18:16:35.604004Z",
+      "host": null,
+      "attack_type": "Port Scan / Reconnaissance",
+      "recommended_actions": [
+        "Block or rate-limit the source IP on the firewall/WAF.",
+        "Escalate to the security team and open an incident ticket."
+      ],
+      "raw_context": {}
+    },
+    {
+      "generated_at": "2026-04-17T18:25:48.380955+00:00",
+      "source_type": "web",
+      "row_index": 9,
+      "anomaly_score": 11.0396,
+      "prediction": "anomaly",
+      "threshold": 0.006936572690702766,
+      "threat_score": 100.0,
+      "threat_level": "critical",
+      "source_ip": null,
+      "username": "admin",
+      "event_time": "2026-04-17T18:25:48.380955Z",
+      "host": null,
+      "attack_type": "SQL Injection",
+      "recommended_actions": [
+        "Block or rate-limit the source IP on the firewall/WAF.",
+        "Inspect the vulnerable endpoint, sanitize inputs, and review recent database queries.",
+        "Escalate to the security team and open an incident ticket."
+      ],
+      "raw_context": {
+        "url": "GET /login?username=admin' OR 1=1--&password=x HTTP/1.1",
+        "query": "username=admin' OR 1=1--&password=x HTTP/1.1"
+      }
+    },
+    {
+      "generated_at": "2026-04-17T18:34:53.490865+00:00",
+      "source_type": "web",
+      "row_index": 9,
+      "anomaly_score": 11.0396,
+      "prediction": "anomaly",
+      "threshold": 0.006936572690702766,
+      "threat_score": 100.0,
+      "threat_level": "critical",
+      "source_ip": null,
+      "username": "admin",
+      "event_time": "2026-04-17T18:34:53.490865Z",
+      "host": null,
+      "attack_type": "SQL Injection",
+      "recommended_actions": [
+        "Block or rate-limit the source IP on the firewall/WAF.",
+        "Inspect the vulnerable endpoint, sanitize inputs, and review recent database queries.",
+        "Escalate to the security team and open an incident ticket."
+      ],
+      "raw_context": {
+        "url": "GET /login?username=admin' OR 1=1--&password=x HTTP/1.1",
+        "query": "username=admin' OR 1=1--&password=x HTTP/1.1"
+      }
+    },
+    {
+      "generated_at": "2026-04-17T18:47:15.481875+00:00",
+      "source_type": "web",
+      "row_index": 9,
+      "anomaly_score": 117.464112,
+      "prediction": "anomaly",
+      "threshold": 0.006936572690702766,
+      "threat_score": 100.0,
+      "threat_level": "critical",
+      "source_ip": "192.168.1.10",
+      "username": "mohamed",
+      "event_time": "2026-04-17T18:47:15.485085Z",
+      "host": null,
+      "attack_type": "Web Anomaly",
+      "recommended_actions": [
+        "Block or rate-limit the source IP on the firewall/WAF.",
+        "Escalate to the security team and open an incident ticket."
+      ],
+      "raw_context": {
+        "url": "[\n  {\n    \"timestamp\": \"2026-04-17T10:15:22\",\n    \"source_ip\": \"192.168.1.10\",\n    \"method\": \"GET\",\n    \"url\": \"/home\",\n    \"query\": \"\",\n    \"body\": \"\",\n    \"status_code\": 200,\n    \"user_agent\": \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/135.0\"\n  },\n  {\n    \"timestamp\": \"2026-04-17T10:16:01\",\n    \"source_ip\": \"192.168.1.11\",\n    \"method\": \"POST\",\n    \"url\": \"/login\",\n    \"query\": \"\",\n    \"body\": \"username=mohamed&password=UserPass123\",\n    \"status_code\": 200,\n    \"user_agent\": \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/135.0\"\n  },\n  {\n    \"timestamp\": \"2026-04-17T10:17:10\",\n    \"source_ip\": \"192.168.1.12\",\n    \"method\": \"GET\",\n    \"url\": \"/products\",\n    \"query\": \"category=laptops&page=1\",\n    \"body\": \"\",\n    \"status_code\": 200,\n    \"user_agent\": \"Mozilla/5.0 (X11; Linux x86_64) Firefox/137.0\"\n  },\n  {\n    \"timestamp\": \"2026-04-17T10:18:45\",\n    \"source_ip\": \"192.168.1.13\",\n    \"method\": \"GET\",\n    \"url\": \"/about\",\n    \"query\": \"\",\n    \"body\": \"\",\n    \"status_code\": 200,\n    \"user_agent\": \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Safari/605.1\"\n  }\n]",
+        "query": ""
+      }
+    },
+    {
+      "generated_at": "2026-04-17T18:47:40.807439+00:00",
+      "source_type": "web",
+      "row_index": 9,
+      "anomaly_score": 14.432856,
+      "prediction": "anomaly",
+      "threshold": 0.006936572690702766,
+      "threat_score": 100.0,
+      "threat_level": "critical",
+      "source_ip": "192.168.1.10",
+      "username": null,
+      "event_time": "2026-04-17T18:47:40.807439Z",
+      "host": null,
+      "attack_type": "Web Anomaly",
+      "recommended_actions": [
+        "Block or rate-limit the source IP on the firewall/WAF.",
+        "Escalate to the security team and open an incident ticket."
+      ],
+      "raw_context": {
+        "url": "{\n    \"timestamp\": \"2026-04-17T10:15:22\",\n    \"source_ip\": \"192.168.1.10\",\n    \"method\": \"GET\",\n    \"url\": \"/home\",\n    \"query\": \"\",\n    \"body\": \"\",\n    \"status_code\": 200,\n    \"user_agent\": \"Mozilla/5.0 (Windows NT 10.0; Win64; x64)\n  }",
+        "query": ""
+      }
+    },
+    {
+      "generated_at": "2026-04-17T18:48:10.564784+00:00",
+      "source_type": "web",
+      "row_index": 9,
+      "anomaly_score": 13.184064,
+      "prediction": "anomaly",
+      "threshold": 0.006936572690702766,
+      "threat_score": 100.0,
+      "threat_level": "critical",
+      "source_ip": "192.168.1.10",
+      "username": null,
+      "event_time": "2026-04-17T18:48:10.564784Z",
+      "host": null,
+      "attack_type": "Web Anomaly",
+      "recommended_actions": [
+        "Block or rate-limit the source IP on the firewall/WAF.",
+        "Escalate to the security team and open an incident ticket."
+      ],
+      "raw_context": {
+        "url": "{\n    \"timestamp\": \"2026-04-17T10:15:22\",\n    \"source_ip\": \"192.168.1.10\",\n    \"method\": \"GET\",\n    \"url\": \"/home\",\n    \"query\": \"\",\n    \"body\": \"\",\n    \"status_code\": 200,\n  }",
+        "query": ""
+      }
+    },
+    {
+      "generated_at": "2026-04-17T18:48:11.785007+00:00",
+      "source_type": "web",
+      "row_index": 9,
+      "anomaly_score": 13.184064,
+      "prediction": "anomaly",
+      "threshold": 0.006936572690702766,
+      "threat_score": 100.0,
+      "threat_level": "critical",
+      "source_ip": "192.168.1.10",
+      "username": null,
+      "event_time": "2026-04-17T18:48:11.785007Z",
+      "host": null,
+      "attack_type": "Web Anomaly",
+      "recommended_actions": [
+        "Block or rate-limit the source IP on the firewall/WAF.",
+        "Escalate to the security team and open an incident ticket."
+      ],
+      "raw_context": {
+        "url": "{\n    \"timestamp\": \"2026-04-17T10:15:22\",\n    \"source_ip\": \"192.168.1.10\",\n    \"method\": \"GET\",\n    \"url\": \"/home\",\n    \"query\": \"\",\n    \"body\": \"\",\n    \"status_code\": 200,\n  }",
+        "query": ""
+      }
+    },
+    {
+      "generated_at": "2026-04-17T18:48:13.294102+00:00",
+      "source_type": "web",
+      "row_index": 9,
+      "anomaly_score": 13.184064,
+      "prediction": "anomaly",
+      "threshold": 0.006936572690702766,
+      "threat_score": 100.0,
+      "threat_level": "critical",
+      "source_ip": "192.168.1.10",
+      "username": null,
+      "event_time": "2026-04-17T18:48:13.295015Z",
+      "host": null,
+      "attack_type": "Web Anomaly",
+      "recommended_actions": [
+        "Block or rate-limit the source IP on the firewall/WAF.",
+        "Escalate to the security team and open an incident ticket."
+      ],
+      "raw_context": {
+        "url": "{\n    \"timestamp\": \"2026-04-17T10:15:22\",\n    \"source_ip\": \"192.168.1.10\",\n    \"method\": \"GET\",\n    \"url\": \"/home\",\n    \"query\": \"\",\n    \"body\": \"\",\n    \"status_code\": 200,\n  }",
+        "query": ""
+      }
+    },
+    {
+      "generated_at": "2026-04-17T18:48:44.909549+00:00",
+      "source_type": "web",
+      "row_index": 9,
+      "anomaly_score": 15.081718,
+      "prediction": "anomaly",
+      "threshold": 0.006936572690702766,
+      "threat_score": 100.0,
+      "threat_level": "critical",
+      "source_ip": "192.168.1.13",
+      "username": null,
+      "event_time": "2026-04-17T18:48:44.911340Z",
+      "host": null,
+      "attack_type": "Web Anomaly",
+      "recommended_actions": [
+        "Block or rate-limit the source IP on the firewall/WAF.",
+        "Escalate to the security team and open an incident ticket."
+      ],
+      "raw_context": {
+        "url": "}\n{\n    \"timestamp\": \"2026-04-17T10:18:45\",\n    \"source_ip\": \"192.168.1.13\",\n    \"method\": \"GET\",\n    \"url\": \"/about\",\n    \"query\": \"\",\n    \"body\": \"\",\n    \"status_code\": 200,\n    \"user_agent\": \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Safari/605.1\"\n  }\n]",
+        "query": ""
+      }
+    }
+  ],
+  "recommendations": [
+    "Review the top suspicious IPs and block or rate-limit confirmed malicious sources.",
+    "Investigate repeated attack types and patch the affected services/endpoints.",
+    "Review affected user accounts and enforce MFA for exposed services."
+  ]
+}
